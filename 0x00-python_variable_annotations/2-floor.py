@@ -3,4 +3,5 @@
 
 
 def floor(n: float) -> int:
+    """A type annotated function that returns an int"""
     return int(n)
