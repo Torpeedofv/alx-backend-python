@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
-"""A module for an asynchronous coroutine"""
+"""Defines an asynchronous coroutine"""
 import asyncio
-from typing import Union
 import random
 
 
-async def wait_random(max_delay: Union[int, float] = 10) -> float:
-    """A type annotated asynchronous coroutine that takes in an integer
-    argument and returns a float"""
-    i = random.uniform(0, max_delay)
-    await asyncio.sleep(i)
-    return i
+async def wait_random(max_delay: int = 10) -> float:
+    """Waits for a random delay between 0 and max_delay"""
+    random_number = random.uniform(0, max_delay)
+    await asyncio.sleep(random_number)
+    return random_number
