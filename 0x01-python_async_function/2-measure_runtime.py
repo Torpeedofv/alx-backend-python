@@ -1,0 +1,15 @@
+#!/usr/bin/env python3
+"""A module that imports a function and creates a new function"""
+import time
+import asyncio
+wait_n = __import__('1-concurrent_coroutines').wait_n
+
+
+async def measure_time(n: int, max_delay: int) -> float:
+    """a function that measures the total execution time for a
+    async function"""
+    start = time.perf_counter()
+    asyncio.run(wait_n(n, max_delay))
+    end = end.perf_counter()
+    total_time = end - start
+    return total_time / n
