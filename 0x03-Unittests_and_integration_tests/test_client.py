@@ -58,7 +58,9 @@ class TestGithubOrgClient(unittest.TestCase):
         result = client.has_license(repo, license_key)
         self.assertEqual(result, expected_result)
 
-@parameterized_class(('org_payload', 'repos_payload', 'expected_repos', 'apache2_repos'), TEST_PAYLOAD)
+
+@parameterized_class(('org_payload', 'repos_payload', 'expected_repos',
+                     'apache2_repos'), TEST_PAYLOAD)
 class TestIntegrationGithubOrgClient(unittest.TestCase):
     """GothubOrgClient's integration tests"""
 
@@ -72,7 +74,8 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         cls.get_patcher.stop()
 
     def setUp(self):
-        self.mock_get.return_value.json.side_effect = [self.org_payload, self.repos_payload]
+        self.mock_get.return_value.json.side_effect = [self.org_payload,
+                                                       self.repos_payload]
 
     def test_public_repos(self):
         client = GithubOrgClient('testorg')
